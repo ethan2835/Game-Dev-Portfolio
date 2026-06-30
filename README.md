@@ -34,7 +34,7 @@ A simple C# console application that shuffles a deck and deals cards to 4 player
 ### Pong
 A simple 2D Pong game made in Unity with moving paddles, bouncing ball, and reset.
 
-![Pong Gameplay](Pong-Game/screenshot.png)
+![Pong Gameplay](Pong-Game/Screenshot.png)
 
 [View Pong Game](Pong-Game)
 
