@@ -14,7 +14,7 @@ A simple C# console application that shuffles a deck and deals cards to 4 player
 2. Build and run the project
 3. Type any key (except 'q') to deal a new round
 4. Type 'q' to quit
-![Console Card Dealer Running](Screenshot%202026-06-30%2011551..png)
+![Console Card Dealer Running](Screenshot.png)
 
 ## Technologies
 - C#
