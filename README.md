@@ -1,5 +1,5 @@
 # Game-Dev-Portfolio
-# Console Card Dealer
+### Console Card Dealer
 
 A simple C# console application that shuffles a deck and deals cards to 4 players.
 
@@ -29,3 +29,13 @@ A simple C# console application that shuffles a deck and deals cards to 4 player
 ## Future Improvements
 - Full game rules (e.g., War)
 - Graphical interface using Unity
+
+
+### Pong
+A simple 2D Pong game made in Unity with moving paddles, bouncing ball, and reset.
+
+[View Pong Game](Pong-Game)
+
+More projects coming soon.
+
+Made while learning C# and Unity for game dev.
