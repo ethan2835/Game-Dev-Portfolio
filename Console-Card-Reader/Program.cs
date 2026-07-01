@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic; // Added for List
 using ConsoleCards;
 
 namespace ProgrammingAssignment3
@@ -13,10 +14,6 @@ namespace ProgrammingAssignment3
                 Deck mydeck = new Deck();
                 mydeck.Shuffle();
 
-                int highestRank = -1;
-                string winner = "No one";
-
-                // helper function
                 int RankValue(string rankName)
                 {
                     if (string.IsNullOrEmpty(rankName)) return 0;
@@ -39,67 +36,38 @@ namespace ProgrammingAssignment3
                     }
                 }
 
-                // deal cards (3 each now)
-                Card p1_card1 = mydeck.TakeTopCard();
-                Card p2_card1 = mydeck.TakeTopCard();
-                Card p3_card1 = mydeck.TakeTopCard();
-                Card p4_card1 = mydeck.TakeTopCard();
+                List<Card>[] players = new List<Card>[4];
+                for (int i = 0; i < 4; i++)
+                {
+                    players[i] = new List<Card>();
+                    for (int j = 0; j < 3; j++)
+                    {
+                        Card temp = mydeck.TakeTopCard();
+                        temp.FlipOver();
+                        players[i].Add(temp);
+                        Console.WriteLine($"Player {i + 1} card {j + 1}: {temp.Rank} of {temp.Suit}");
+                    }
+                }
 
-                Card p1_card2 = mydeck.TakeTopCard();
-                Card p2_card2 = mydeck.TakeTopCard();
-                Card p3_card2 = mydeck.TakeTopCard();
-                Card p4_card2 = mydeck.TakeTopCard();
+                int highestRank = -1;
+                string winner = "No one";
 
-                Card p1_card3 = mydeck.TakeTopCard();
-                Card p2_card3 = mydeck.TakeTopCard();
-                Card p3_card3 = mydeck.TakeTopCard();
-                Card p4_card3 = mydeck.TakeTopCard();
-
-                // flip cards
-                p1_card1.FlipOver(); p1_card2.FlipOver(); p1_card3.FlipOver();
-                p2_card1.FlipOver(); p2_card2.FlipOver(); p2_card3.FlipOver();
-                p3_card1.FlipOver(); p3_card2.FlipOver(); p3_card3.FlipOver();
-                p4_card1.FlipOver(); p4_card2.FlipOver(); p4_card3.FlipOver();
-
-                // print cards
-                Console.WriteLine(p1_card1.Rank + " of " + p1_card1.Suit);
-                Console.WriteLine(p1_card2.Rank + " of " + p1_card2.Suit);
-                Console.WriteLine(p1_card3.Rank + " of " + p1_card3.Suit);
-
-                Console.WriteLine(p2_card1.Rank + " of " + p2_card1.Suit);
-                Console.WriteLine(p2_card2.Rank + " of " + p2_card2.Suit);
-                Console.WriteLine(p2_card3.Rank + " of " + p2_card3.Suit);
-
-                Console.WriteLine(p3_card1.Rank + " of " + p3_card1.Suit);
-                Console.WriteLine(p3_card2.Rank + " of " + p3_card2.Suit);
-                Console.WriteLine(p3_card3.Rank + " of " + p3_card3.Suit);
-
-                Console.WriteLine(p4_card1.Rank + " of " + p4_card1.Suit);
-                Console.WriteLine(p4_card2.Rank + " of " + p4_card2.Suit);
-                Console.WriteLine(p4_card3.Rank + " of " + p4_card3.Suit);
-
-                // Winner logic - inside the loop
-                if (RankValue(p1_card1.Rank.ToString()) > highestRank) { highestRank = RankValue(p1_card1.Rank.ToString()); winner = "Player 1"; }
-                if (RankValue(p1_card2.Rank.ToString()) > highestRank) { highestRank = RankValue(p1_card2.Rank.ToString()); winner = "Player 1"; }
-                if (RankValue(p1_card3.Rank.ToString()) > highestRank) { highestRank = RankValue(p1_card3.Rank.ToString()); winner = "Player 1"; }
-
-                if (RankValue(p2_card1.Rank.ToString()) > highestRank) { highestRank = RankValue(p2_card1.Rank.ToString()); winner = "Player 2"; }
-                if (RankValue(p2_card2.Rank.ToString()) > highestRank) { highestRank = RankValue(p2_card2.Rank.ToString()); winner = "Player 2"; }
-                if (RankValue(p2_card3.Rank.ToString()) > highestRank) { highestRank = RankValue(p2_card3.Rank.ToString()); winner = "Player 2"; }
-
-                if (RankValue(p3_card1.Rank.ToString()) > highestRank) { highestRank = RankValue(p3_card1.Rank.ToString()); winner = "Player 3"; }
-                if (RankValue(p3_card2.Rank.ToString()) > highestRank) { highestRank = RankValue(p3_card2.Rank.ToString()); winner = "Player 3"; }
-                if (RankValue(p3_card3.Rank.ToString()) > highestRank) { highestRank = RankValue(p3_card3.Rank.ToString()); winner = "Player 3"; }
-
-                if (RankValue(p4_card1.Rank.ToString()) > highestRank) { highestRank = RankValue(p4_card1.Rank.ToString()); winner = "Player 4"; }
-                if (RankValue(p4_card2.Rank.ToString()) > highestRank) { highestRank = RankValue(p4_card2.Rank.ToString()); winner = "Player 4"; }
-                if (RankValue(p4_card3.Rank.ToString()) > highestRank) { highestRank = RankValue(p4_card3.Rank.ToString()); winner = "Player 4"; }
+                for (int i = 0; i < players.Length; i++)
+                {
+                    foreach (Card card in players[i])
+                    {
+                        int currentRank = RankValue(card.Rank.ToString());
+                        if (currentRank > highestRank)
+                        {
+                            highestRank = currentRank;
+                            winner = $"Player {i + 1}";
+                        }
+                    }
+                }
 
                 Console.WriteLine(winner + " has the highest card!");
-
-                // Don't add or modify any code below this comment
                 input = Console.ReadLine();
             }
-        }
-    }
-}
+        } // Closes Main
+    } // Closes Program class
+} // Closes Namespace
