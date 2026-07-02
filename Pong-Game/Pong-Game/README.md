@@ -1,18 +1,30 @@
 # Pong
 
-A simple 2D Pong game made in Unity.
+A simple but fully playable 2D Pong game built in Unity as part of my game development learning journey.
 
 ## Features
-- Two player paddles (W/S and Up/Down keys)
-- Bouncing ball with physics
-- Ball resets after going off screen
-- Pause with ESC key
+- Two-player local multiplayer
+- Smooth paddle movement (W/S for left, Up/Down for right)
+- Physics-based bouncing ball with momentum
+- Ball resets to center after scoring
+- Pause menu with ESC key
+- Basic score tracking
 
 ## How to Play
-- Build and run the Unity project
-- Use W/S for left paddle
-- Use Up/Down for right paddle
-- First to score wins (basic version)
+1. Open the project in Unity
+2. Press Play in the editor or build the .exe
+3. Use W/S keys for left paddle
+4. Use Up/Down arrows for right paddle
+5. First player to score wins (basic version)
 
-Made as part of learning Unity and C# for game dev.
+## Technologies
+- Unity 2021.3
+- C#
+- 2D Physics
 
+## Screenshots
+![Pong Gameplay](pong-screenshot.png)
+
+Made while learning Unity and C# for game development. 
+
+GitHub Portfolio: https://github.com/ethan2835/Game-Dev-Portfolio
